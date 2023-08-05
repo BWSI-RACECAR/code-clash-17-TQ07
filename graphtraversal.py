@@ -111,7 +111,7 @@ def main():
             in_graph[nodes[i]][edges[j]] = int(weights[j])
 
     graph = Graph(nodes, in_graph)
-    _, shortest_path = tc1.spath_algo(graph, "Start")
+    shortest_path = tc1.spath_algo(graph, "Start")
     print(shortest_path["Finish"])
 
 if __name__ == "__main__":
