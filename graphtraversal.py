@@ -80,21 +80,21 @@ class Graph(object):
 class Solution:
     
     def spath_algo(self, graph, start_node):
-    distances = {node: float('inf') for node in graph.get_nodes()}
-    distances[start_node] = 0
-    unvisited = set(graph.get_nodes())
-    
-    current_node = start_node
-    while unvisited:
-        current_node = min(unvisited, key=lambda node: distances[node])
-        unvisited.remove(current_node)
+        distances = {node: float('inf') for node in graph.get_nodes()}
+        distances[start_node] = 0
+        unvisited = set(graph.get_nodes())
         
-        for neighbor in graph.get_outgoing_edges(current_node):
-            new_distance = distances[current_node] + graph.value(current_node, neighbor)
-            if new_distance < distances[neighbor]:
-                distances[neighbor] = new_distance
-    
-    return distances
+        current_node = start_node
+        while unvisited:
+            current_node = min(unvisited, key=lambda node: distances[node])
+            unvisited.remove(current_node)
+            
+            for neighbor in graph.get_outgoing_edges(current_node):
+                new_distance = distances[current_node] + graph.value(current_node, neighbor)
+                if new_distance < distances[neighbor]:
+                    distances[neighbor] = new_distance
+        
+        return distances
 
 
 def main():
